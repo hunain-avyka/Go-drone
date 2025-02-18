@@ -22,11 +22,11 @@ import (
 	"os"
 	"strings"
 
-	travis "github.com/drone/go-convert/convert/travis/yaml"
 	harness "github.com/drone/spec/dist/go"
+	travis "github.com/hunain-avyka/Go-drone/convert/travis/yaml"
 
-	"github.com/drone/go-convert/internal/store"
 	"github.com/ghodss/yaml"
+	"github.com/hunain-avyka/Go-drone/internal/store"
 )
 
 // as we walk the yaml, we store a

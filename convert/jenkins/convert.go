@@ -29,9 +29,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/drone/go-convert/convert/drone"
-	"github.com/drone/go-convert/convert/github"
-	"github.com/drone/go-convert/convert/gitlab"
+	"github.com/hunain-avyka/Go-drone/convert/drone"
+	"github.com/hunain-avyka/Go-drone/convert/github"
+	"github.com/hunain-avyka/Go-drone/convert/gitlab"
 )
 
 // Converter converts a Drone pipeline to a Harness

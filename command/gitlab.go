@@ -21,8 +21,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/drone/go-convert/convert/gitlab"
-	"github.com/drone/go-convert/convert/harness/downgrader"
+	"github.com/hunain-avyka/Go-drone/convert/gitlab"
+	"github.com/hunain-avyka/Go-drone/convert/harness/downgrader"
 
 	"github.com/google/subcommands"
 )

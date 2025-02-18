@@ -23,9 +23,9 @@ import (
 	"strings"
 	"time"
 
-	cloudbuild "github.com/drone/go-convert/convert/cloudbuild/yaml"
-	"github.com/drone/go-convert/internal/store"
 	harness "github.com/drone/spec/dist/go"
+	cloudbuild "github.com/hunain-avyka/Go-drone/convert/cloudbuild/yaml"
+	"github.com/hunain-avyka/Go-drone/internal/store"
 
 	"github.com/ghodss/yaml"
 )

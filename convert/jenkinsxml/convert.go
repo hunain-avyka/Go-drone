@@ -24,9 +24,9 @@ import (
 	"os"
 	"strings"
 
-	jenkinsxml "github.com/drone/go-convert/convert/jenkinsxml/xml"
-	"github.com/drone/go-convert/internal/store"
 	harness "github.com/drone/spec/dist/go"
+	jenkinsxml "github.com/hunain-avyka/Go-drone/convert/jenkinsxml/xml"
+	"github.com/hunain-avyka/Go-drone/internal/store"
 
 	"github.com/ghodss/yaml"
 )

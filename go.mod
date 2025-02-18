@@ -1,4 +1,4 @@
-module github.com/hunain-avyka/Go-
+module github.com/hunain-avyka/Go-drone
 
 go 1.19
 

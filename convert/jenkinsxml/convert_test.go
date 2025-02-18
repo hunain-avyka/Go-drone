@@ -19,8 +19,8 @@ import (
 	"io/ioutil"
 	"testing"
 
-	jenkinsxml "github.com/drone/go-convert/convert/jenkinsxml/xml"
 	harness "github.com/drone/spec/dist/go"
+	jenkinsxml "github.com/hunain-avyka/Go-drone/convert/jenkinsxml/xml"
 
 	"github.com/google/go-cmp/cmp"
 	"gopkg.in/yaml.v3"
