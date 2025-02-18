@@ -18,8 +18,11 @@ package jenkinsxml
 import (
 	"bytes"
 	"encoding/xml"
+	"fmt"
 	"io"
+	"log"
 	"os"
+	"strings"
 
 	jenkinsxml "github.com/drone/go-convert/convert/jenkinsxml/xml"
 	"github.com/drone/go-convert/internal/store"
@@ -123,6 +126,7 @@ func (d *Converter) convert(ctx *context) ([]byte, error) {
 	// create the harness stage.
 	dstStage := &harness.Stage{
 		Type: "ci",
+		Name: "ci",
 		// When: convertCond(from.Trigger),
 		Spec: &harness.StageCI{
 			// Delegate: convertNode(from.Node),
@@ -144,6 +148,18 @@ func (d *Converter) convert(ctx *context) ([]byte, error) {
 			step = convertShellTaskToStep(&task)
 		case "hudson.tasks.Ant":
 			step = convertAntTaskToStep(&task)
+		case "hudson.tasks.BatchFile":
+			step = convertBatchFileTaskToStep(&task)
+		case "hudson.plugins.gradle.Gradle":
+			step = convertGradleFileTaskToStep(&task)
+		case "hudson.tasks.Maven":
+			step = convertMavenTaskToStep(&task)
+		// case "com.cloudbees.jenkins.GitHubSetCommitStatusBuilder":
+		//  	step = convertGitHubSetCommitStatusTaskToStep(&task)
+		case "hudson.plugins.build__timeout.BuildStepWithTimeout":
+			step = convertTimeoutTaskToStep(&task)
+
+			//hudson.plugins.build__timeout.BuildStepWithTimeout
 		default:
 			step = unsupportedTaskToStep(taskname)
 		}
@@ -159,6 +175,104 @@ func (d *Converter) convert(ctx *context) ([]byte, error) {
 	}
 
 	return out, nil
+}
+func convertMavenTaskToStep(task *jenkinsxml.Task) *harness.Step {
+	mavenTask := &jenkinsxml.HudsonMavenTask{}
+	// TODO: wrapping task.Content with 'builders' tags is ugly.
+	err := xml.Unmarshal([]byte("<builders>"+task.Content+"</builders>"), mavenTask)
+	if err != nil {
+		return nil
+	}
+
+	spec := new(harness.StepPlugin)
+	spec.Image = "harnesscommunitytest/maven-plugin"
+	spec.Inputs = map[string]interface{}{
+		"goals": mavenTask.Targets,
+	}
+	step := &harness.Step{
+		Name: "maven",
+		Type: "plugin",
+		Spec: spec,
+	}
+
+	return step
+}
+func convertGradleFileTaskToStep(task *jenkinsxml.Task) *harness.Step {
+	gradleTask := &jenkinsxml.HudsonGradleTask{}
+	// TODO: wrapping task.Content with 'builders' tags is ugly.
+	err := xml.Unmarshal([]byte("<builders>"+task.Content+"</builders>"), gradleTask)
+	if err != nil {
+		return nil
+	}
+
+	spec := new(harness.StepPlugin)
+	spec.Image = "harnesscommunitytest/gradle-plugin"
+	spec.Inputs = map[string]interface{}{
+		"goals": gradleTask.Tasks,
+	}
+	step := &harness.Step{
+		Name: "gradle",
+		Type: "plugin",
+		Spec: spec,
+	}
+
+	return step
+}
+
+//	func convertGitHubSetCommitStatusTaskToStep(task *jenkinsxml.Task) *harness.Step {
+//		//	<com.cloudbees.jenkins.GitHubSetCommitStatusBuilder plugin="github@1.40.0">
+//		//
+//		// <statusMessage>
+//		// <content/>
+//		// </statusMessage>
+//		// <contextSource class="org.jenkinsci.plugins.github.status.sources.DefaultCommitContextSource"/>
+//		// </com.cloudbees.jenkins.GitHubSetCommitStatusBuilder>
+//	}
+
+func convertTimeoutTaskToStep(task *jenkinsxml.Task) *harness.Step {
+	// Create a new HudsonTimeoutTask instance
+	timeoutTask := &jenkinsxml.HudsonTimeoutTask{}
+
+	// Trim the content from the task
+	xmlContent := strings.TrimSpace(task.Content)
+
+	// Unmarshal the XML content into the timeoutTask
+	err := xml.Unmarshal([]byte(xmlContent), timeoutTask)
+	if err != nil {
+		log.Println("Error unmarshalling XML:", err)
+		return nil
+	}
+	timeoutValue := fmt.Sprintf("%sm", timeoutTask.TimeoutMinutes)
+
+	// Create StepExec object and set the timeout value to the Run field
+	spec := new(harness.StepExec)
+	//spec.Run = timeoutTask.TimeoutMinutes
+	step := &harness.Step{
+		Spec:    spec,
+		Name:    "Run0",
+		Type:    "script",
+		Timeout: timeoutValue,
+	}
+
+	return step
+}
+
+func convertBatchFileTaskToStep(task *jenkinsxml.Task) *harness.Step {
+	batchTask := &jenkinsxml.HudsonBatchTask{}
+	err := xml.Unmarshal([]byte("<builders>"+task.Content+"</builders>"), batchTask)
+	if err != nil {
+		return nil
+	}
+	spec := new(harness.StepExec)
+	spec.Run = batchTask.Command
+	step := &harness.Step{
+		Name: "shell",
+		Type: "script",
+		Spec: spec,
+	}
+
+	return step
+
 }
 
 // convertAntTaskToStep converts a Jenkins Ant task to a Harness step.
@@ -184,7 +298,6 @@ func convertAntTaskToStep(task *jenkinsxml.Task) *harness.Step {
 	return step
 }
 
-// convertShellTaskToStep converts a Jenkins Shell task to a Harness step.
 func convertShellTaskToStep(task *jenkinsxml.Task) *harness.Step {
 	shellTask := &jenkinsxml.HudsonShellTask{}
 	// TODO: wrapping task.Content with 'builders' tags is ugly.
@@ -204,8 +317,25 @@ func convertShellTaskToStep(task *jenkinsxml.Task) *harness.Step {
 	return step
 }
 
-// unsupportedTaskToStep converts an unsupported Jenkins Task to a placeholder
-// Harness step.
+// func convertGitHubSetCommitStatusTaskToStep(task *jenkinsxml.Task) *harness.Step {
+// 	shellTask := &jenkinsxml.ConvertGitHubSetCommitStatusTask{}
+// 	// TODO: wrapping task.Content with 'builders' tags is ugly.
+// 	err := xml.Unmarshal([]byte("<builders>"+task.Content+"</builders>"), shellTask)
+// 	if err != nil {
+// 		return nil
+// 	}
+
+// 	spec := new(harness.StepExec)
+// 	spec.Run = shellTask.Command
+// 	step := &harness.Step{
+// 		Name: "shell",
+// 		Type: "script",
+// 		Spec: spec,
+// 	}
+
+// 	return step
+// }
+
 func unsupportedTaskToStep(task string) *harness.Step {
 	spec := new(harness.StepExec)
 	spec.Run = "echo Unsupported field " + task
