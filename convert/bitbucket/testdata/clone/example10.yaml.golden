@@ -1,0 +1,16 @@
+kind: pipeline
+spec:
+  stages:
+  - delegate:
+    - self.hosted
+    name: build
+    spec:
+      clone:
+        insecure: true
+      steps:
+      - name: run
+        spec:
+          run: echo "Use git with a self-signed certificate"
+        type: script
+    type: ci
+version: 1

@@ -1,0 +1,17 @@
+kind: pipeline
+spec:
+  stages:
+  - name: test
+    spec:
+      steps:
+      - failure:
+          action:
+            type: ignore
+          errors:
+          - all
+        name: job1
+        spec:
+          run: execute_script_1
+        type: script
+    type: ci
+version: 1

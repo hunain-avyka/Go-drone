@@ -1,0 +1,18 @@
+kind: pipeline
+spec:
+  stages:
+  - name: test
+    spec:
+      platform:
+        arch: amd64
+        os: linux
+      runtime:
+        spec: {}
+        type: cloud
+      steps:
+      - name: install_packages
+        spec:
+          run: npm install
+        type: script
+    type: ci
+version: 1

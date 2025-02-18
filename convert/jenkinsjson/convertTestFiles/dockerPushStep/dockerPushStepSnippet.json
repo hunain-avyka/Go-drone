@@ -1,0 +1,24 @@
+{
+  "spanId": "ed0750b60f975189",
+  "traceId": "de4a510a21792ddd94d610f1cbf9533b",
+  "parent": "dockerTest",
+  "name": "dockerTest #4",
+  "attributesMap": {
+    "harness-others": "",
+    "jenkins.pipeline.step.name": "Artifactory docker push",
+    "jenkins.pipeline.step.id": "32",
+    "ci.pipeline.run.user": "SYSTEM",
+    "jenkins.pipeline.step.type": "dockerPushStep",
+    "harness-attribute": "{\n  \"image\" : \"anshika/testimage:latest\",\n  \"server\" : \"https://localhost:5000/\",\n  \"targetRepo\" : \"testimage\"\n}",
+    "jenkins.pipeline.step.plugin.name": "artifactory",
+    "jenkins.pipeline.step.plugin.version": "4.0.7"
+  },
+  "type": "Run Phase Span",
+  "parentSpanId": "1fe7c9899ab7ec10",
+  "parameterMap": {
+    "image": "anshika/testimage:latest",
+    "server": "https://localhost:5000/",
+    "targetRepo": "testimage"
+  },
+  "spanName": "dockerPushStep"
+}

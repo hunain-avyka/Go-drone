@@ -1,0 +1,12 @@
+- step:
+    identifier: unzipc9e2eb
+    name: unzip
+    spec:
+      image: harnesscommunitytest/archive-plugin:latest
+      settings:
+        action: extract
+        format: zip
+        source: test.zip
+        target: ./archive_new2
+    timeout: ""
+    type: Plugin

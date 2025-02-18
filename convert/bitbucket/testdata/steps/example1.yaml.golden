@@ -1,0 +1,12 @@
+kind: pipeline
+spec:
+  stages:
+  - name: build
+    spec:
+      steps:
+      - name: run
+        spec:
+          run: echo "Hello, World!"
+        type: script
+    type: ci
+version: 1

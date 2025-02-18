@@ -1,0 +1,12 @@
+- step:
+    identifier: dockerPushStep
+    name: dockerPushStep
+    spec:
+      caching: true
+      connectorRef: <+input>
+      repo: anshika/testimage
+      tags:
+        - latest
+      target: testimage
+    timeout: ""
+    type: BuildAndPushDockerRegistry

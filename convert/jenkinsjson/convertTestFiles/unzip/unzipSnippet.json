@@ -1,0 +1,24 @@
+{
+  "spanId": "c9e2eb9f12367d6c",
+  "traceId": "fb302d811edeb970820eee05e1ae3d08",
+  "parent": "zipTest_AntStyle",
+  "all-info": "span(name: unzip, spanId: c9e2eb9f12367d6c, parentSpanId: ab763408b4f2d7c0, traceId: fb302d811edeb970820eee05e1ae3d08, attr: ci.pipeline.run.user:SYSTEM;harness-attribute:{\n  \"dir\" : \"./archive_new2\",\n  \"zipFile\" : \"test.zip\"\n};harness-others:;jenkins.pipeline.step.id:17;jenkins.pipeline.step.name:Extract Zip file;jenkins.pipeline.step.plugin.name:pipeline-utility-steps;jenkins.pipeline.step.plugin.version:2.17.0;jenkins.pipeline.step.type:unzip;)",
+  "name": "zipTest_AntStyle #1",
+  "attributesMap": {
+    "harness-others": "",
+    "jenkins.pipeline.step.name": "Extract Zip file",
+    "ci.pipeline.run.user": "SYSTEM",
+    "jenkins.pipeline.step.id": "17",
+    "jenkins.pipeline.step.type": "unzip",
+    "harness-attribute": "{\n  \"dir\" : \"./archive_new2\",\n  \"zipFile\" : \"test.zip\"\n}",
+    "jenkins.pipeline.step.plugin.name": "pipeline-utility-steps",
+    "jenkins.pipeline.step.plugin.version": "2.17.0"
+  },
+  "type": "Run Phase Span",
+  "parentSpanId": "ab763408b4f2d7c0",
+  "parameterMap": {
+    "dir": "./archive_new2",
+    "zipFile": "test.zip"
+  },
+  "spanName": "unzip"
+}

@@ -1,0 +1,10 @@
+stop_review_app:
+    environment:
+        name: review/$CI_COMMIT_REF_SLUG
+        action: stop
+    script:
+        - make delete-app
+    stage: deploy
+    variables:
+        GIT_STRATEGY: none
+    when: manual

@@ -1,0 +1,17 @@
+kind: pipeline
+spec:
+  stages:
+  - name: test
+    spec:
+      steps:
+      - failure:
+          action:
+            type: ignore
+          errors:
+          - all
+        name: rspec
+        spec:
+          run: rake rspec
+        type: script
+    type: ci
+version: 1

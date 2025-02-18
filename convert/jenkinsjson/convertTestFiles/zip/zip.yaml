@@ -1,0 +1,14 @@
+- step:
+    identifier: zip9c3d42
+    name: zip
+    spec:
+      image: harnesscommunitytest/archive-plugin:latest
+      settings:
+        action: archive
+        exclude: '**/another.txt'
+        format: zip
+        glob: '**/test?.txt'
+        overwrite: "true"
+        source: test.zip
+        target: archive2
+

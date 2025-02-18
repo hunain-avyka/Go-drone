@@ -1,0 +1,17 @@
+kind: pipeline
+spec:
+  stages:
+  - name: build
+    spec:
+      steps:
+      - name: my-service
+        spec:
+          image: <aws_account_id>.dkr.ecr.<region>.amazonaws.com/bash:latest
+          network: host
+        type: background
+      - name: run
+        spec:
+          run: echo "Hello, World!"
+        type: script
+    type: ci
+version: 1

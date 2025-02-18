@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    environment {
+        DOCKER_IMAGE = 'anshika/testimage'
+        DOCKER_TAG = 'latest'
+        ARTIFACTORY_SERVER = 'artifactory-id'
+    }
+
+    stages {
+        stage('Push to Artifactory') {
+            steps {
+                script {
+                    def server = Artifactory.server ARTIFACTORY_SERVER
+
+                    def dockerPush = server.docker.push(
+                        "${DOCKER_IMAGE}:${DOCKER_TAG}",
+                        'testimage'
+                    )
+
+                    dockerPush.execute()
+                }
+            }
+        }
+    }
+}

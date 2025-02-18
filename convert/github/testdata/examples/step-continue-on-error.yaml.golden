@@ -1,0 +1,32 @@
+kind: pipeline
+spec:
+  stages:
+  - name: job1
+    spec:
+      platform:
+        arch: amd64
+        os: linux
+      runtime:
+        spec: {}
+        type: cloud
+      steps:
+      - failure:
+          action:
+            spec: {}
+            type: ignore
+          errors:
+          - all
+        name: step1
+        spec:
+          run: echo continue on error
+        type: script
+      - name: step2
+        spec:
+          run: echo do not continue on error
+        type: script
+      - name: step3
+        spec:
+          run: echo step3
+        type: script
+    type: ci
+version: 1

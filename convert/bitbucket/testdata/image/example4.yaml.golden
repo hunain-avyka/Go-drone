@@ -1,0 +1,14 @@
+kind: pipeline
+spec:
+  stages:
+  - name: build
+    spec:
+      steps:
+      - name: Hello world example
+        spec:
+          image: my-docker-hub-account/my-docker-image:latest
+          run: echo "Hello, World!"
+          user: "1001"
+        type: script
+    type: ci
+version: 1
