@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-	harness "github.com/drone/spec/dist/go"
+	harness "github.com/hunain-avyka/go-spec/dist/go"
 )
 
 // ConvertAnsiblePlaybook creates a Harness step for Ansible Playbook plugin with conditional parameters.

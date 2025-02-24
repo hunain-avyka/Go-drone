@@ -6,8 +6,6 @@ github.com/buildkite/yaml v2.1.0+incompatible h1:xirI+ql5GzfikVNDmt+yeiXpf/v1Gt0
 github.com/buildkite/yaml v2.1.0+incompatible/go.mod h1:UoU8vbcwu1+vjZq01+KrpSeLBgQQIjL/H7Y6KwikUrI=
 github.com/docker/go-units v0.4.0 h1:3uh0PgVws3nIA0Q+MwDC8yjEPf9zjRfZZWXZYDct3Tw=
 github.com/docker/go-units v0.4.0/go.mod h1:fgPhTUdO+D/Jk86RDLlptpiXQzgHJF7gydDDbaIK4Dk=
-github.com/drone/spec v0.0.0-20241227155015-36d0519211d7 h1:q47fe0oJdmHfw76OypFrZtb2Qa9VUV1KbuYPlM+El68=
-github.com/drone/spec v0.0.0-20241227155015-36d0519211d7/go.mod h1:KyQZA9qwuscbbM7yTrtZg25Wammoc5GKwaRem8kDA5k=
 github.com/ghodss/yaml v1.0.0 h1:wQHKEahhL6wmXdzwWG11gIVCkOv05bNOh+Rxn0yngAk=
 github.com/ghodss/yaml v1.0.0/go.mod h1:4dBDuWmgqj2HViK6kFavaiC9ZROes6MMH2rRYeMEF04=
 github.com/google/go-cmp v0.5.9 h1:O2Tfq5qg4qc4AmwVlvv0oLiVAGB7enBSJ2x2DqQFi38=
@@ -16,6 +14,8 @@ github.com/google/subcommands v1.2.0 h1:vWQspBTo2nEqTUFita5/KeEWlUL8kQObDFbub/EN
 github.com/google/subcommands v1.2.0/go.mod h1:ZjhPrFU+Olkh9WazFPsl27BQ4UPiG37m3yTrtFlrHVk=
 github.com/gotidy/ptr v1.4.0 h1:7++suUs+HNHMnyz6/AW3SE+4EnBhupPSQTSI7QNijVc=
 github.com/gotidy/ptr v1.4.0/go.mod h1:MjRBG6/IETiiZGWI8LrRtISXEji+8b/jigmj2q0mEyM=
+github.com/hunain-avyka/go-spec v0.0.0-20250224093932-51886fd9bf39 h1:2eDSWRceSygI57GcB+cUDXKkPJD1HGR4z87Re5koDxQ=
+github.com/hunain-avyka/go-spec v0.0.0-20250224093932-51886fd9bf39/go.mod h1:SkFU6m+bLxhdvp3ppc3bU7aG+/poyG3cLKBHEjlbfuA=
 github.com/tidwall/gjson v1.17.1 h1:wlYEnwqAHgzmhNUFfw7Xalt2JzQvsMx2Se4PcoFCT/U=
 github.com/tidwall/gjson v1.17.1/go.mod h1:/wbyibRr2FHMks5tjHJ5F8dMZh3AcwJEMf5vlfC0lxk=
 github.com/tidwall/match v1.1.1 h1:+Ho715JplO36QYgwN9PGYNhgZvoUSc9X2c80KVTi+GA=

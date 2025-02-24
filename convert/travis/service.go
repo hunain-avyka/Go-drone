@@ -14,7 +14,7 @@
 
 package travis
 
-import harness "github.com/drone/spec/dist/go"
+import harness "github.com/hunain-avyka/go-spec/dist/go"
 
 func (d *Converter) convertServices(ctx *context) []*harness.Step {
 

@@ -24,9 +24,9 @@ import (
 	"os"
 	"strings"
 
-	harness "github.com/drone/spec/dist/go"
 	jenkinsxml "github.com/hunain-avyka/Go-drone/convert/jenkinsxml/xml"
 	"github.com/hunain-avyka/Go-drone/internal/store"
+	harness "github.com/hunain-avyka/go-spec/dist/go"
 
 	"github.com/ghodss/yaml"
 )
@@ -197,6 +197,27 @@ func convertMavenTaskToStep(task *jenkinsxml.Task) *harness.Step {
 
 	return step
 }
+
+type Buildspec struct {
+	Language             string    `json:"language,omitempty"`
+	BuildTool            string    `json:"buildTool,omitempty"`
+	Args                 string    `json:"args,omitempty"`
+	RunOnlySelectedTests bool      `json:"runOnlySelectedTests,omitempty"`
+	PreCommand           string    `json:"preCommand,omitempty"`
+	PostCommand          string    `json:"postCommand,omitempty"`
+	Reports              []*Report `json:"reports,omitempty"`
+	EnableTestSplitting  bool      `json:"enableTestSplitting,omitempty"`
+}
+
+type Report struct {
+	Type string `json:"type,omitempty"`
+	Spec *Spec  `json:"spec,omitempty"`
+}
+
+type Spec struct {
+	Paths []string `json:"paths,omitempty"`
+}
+
 func convertGradleFileTaskToStep(task *jenkinsxml.Task) *harness.Step {
 	gradleTask := &jenkinsxml.HudsonGradleTask{}
 	// TODO: wrapping task.Content with 'builders' tags is ugly.
@@ -204,15 +225,48 @@ func convertGradleFileTaskToStep(task *jenkinsxml.Task) *harness.Step {
 	if err != nil {
 		return nil
 	}
+	// step:
+	//               type: RunTests
+	//               name: RunTests_1
+	//               identifier: RunTests_1
+	//               spec:
+	//                 language: Java
+	//                 buildTool: Gradle
+	//                 args: clean build test
+	//                 runOnlySelectedTests: false
+	//                 preCommand: chmod +x ./gradlew
+	//                 postCommand: buils --info
+	//                 reports:
+	//                   type: JUnit
+	//                   spec:
+	//                     paths:
+	//                       - "**/*.xml"
+	//                 enableTestSplitting: false
 
-	spec := new(harness.StepPlugin)
-	spec.Image = "harnesscommunitytest/gradle-plugin"
-	spec.Inputs = map[string]interface{}{
-		"goals": gradleTask.Tasks,
+	// spec := new(harness.StepPlugin)
+	// spec.Image = "harnesscommunitytest/gradle-plugin"
+	// spec.Inputs = map[string]interface{}{
+	// 	"goals": gradleTask.Tasks,
+	// }
+
+	spec := new(Buildspec)
+	spec.Language = "Java"
+	spec.BuildTool = "Gradle"
+	spec.Args = gradleTask.Tasks
+	spec.RunOnlySelectedTests = false
+	spec.Reports = []*Report{
+		{
+			Type: "JUnit",
+			Spec: &Spec{
+				Paths: []string{"**/*.xml"},
+			},
+		},
 	}
+	spec.EnableTestSplitting = false
+
 	step := &harness.Step{
-		Name: "gradle",
-		Type: "plugin",
+		Name: "Gradle",
+		Type: "RunTests",
 		Spec: spec,
 	}
 

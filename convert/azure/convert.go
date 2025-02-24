@@ -21,7 +21,7 @@ import (
 	"io"
 	"os"
 
-	harness "github.com/drone/spec/dist/go"
+	harness "github.com/hunain-avyka/go-spec/dist/go"
 
 	"github.com/ghodss/yaml"
 	"github.com/hunain-avyka/Go-drone/internal/store"

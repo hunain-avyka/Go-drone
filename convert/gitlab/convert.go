@@ -24,9 +24,9 @@ import (
 	"strconv"
 	"strings"
 
-	harness "github.com/drone/spec/dist/go"
 	gitlab "github.com/hunain-avyka/Go-drone/convert/gitlab/yaml"
 	"github.com/hunain-avyka/Go-drone/internal/store"
+	harness "github.com/hunain-avyka/go-spec/dist/go"
 
 	"dario.cat/mergo"
 	"github.com/ghodss/yaml"

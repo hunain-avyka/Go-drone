@@ -3,8 +3,9 @@ package json
 import (
 	"encoding/json"
 	"fmt"
-	harness "github.com/drone/spec/dist/go"
 	"strconv"
+
+	harness "github.com/hunain-avyka/go-spec/dist/go"
 )
 
 type anchoreArguments struct {

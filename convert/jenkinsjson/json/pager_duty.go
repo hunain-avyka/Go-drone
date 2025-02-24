@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"log"
 
-	harness "github.com/drone/spec/dist/go"
+	harness "github.com/hunain-avyka/go-spec/dist/go"
 )
 
 // ConvertPagerduty creates a Harness step for nunit plugin.

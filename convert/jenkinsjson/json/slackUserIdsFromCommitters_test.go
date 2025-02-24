@@ -2,11 +2,12 @@ package json
 
 import (
 	"encoding/json"
-	harness "github.com/drone/spec/dist/go"
-	"github.com/google/go-cmp/cmp"
 	"os"
 	"path/filepath"
 	"testing"
+
+	"github.com/google/go-cmp/cmp"
+	harness "github.com/hunain-avyka/go-spec/dist/go"
 )
 
 func TestSlackUserIdsFromCommitters(t *testing.T) {

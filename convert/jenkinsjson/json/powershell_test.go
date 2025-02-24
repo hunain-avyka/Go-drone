@@ -6,8 +6,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	harness "github.com/drone/spec/dist/go"
 	"github.com/google/go-cmp/cmp"
+	harness "github.com/hunain-avyka/go-spec/dist/go"
 )
 
 func TestConvertPowerShell(t *testing.T) {

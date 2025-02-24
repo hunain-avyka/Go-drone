@@ -3,7 +3,7 @@ package json
 import (
 	"strings"
 
-	harness "github.com/drone/spec/dist/go"
+	harness "github.com/hunain-avyka/go-spec/dist/go"
 )
 
 func ConvertEmailext(node Node, variables map[string]string, timeout string) *harness.Step {

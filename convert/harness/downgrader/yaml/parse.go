@@ -6,7 +6,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	v1 "github.com/drone/spec/dist/go"
+	v1 "github.com/hunain-avyka/go-spec/dist/go"
 )
 
 // Parse parses the configuration from io.Reader r.

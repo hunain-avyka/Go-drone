@@ -2,8 +2,9 @@ package json
 
 import (
 	"fmt"
-	harness "github.com/drone/spec/dist/go"
 	"strings"
+
+	harness "github.com/hunain-avyka/go-spec/dist/go"
 )
 
 func ConvertSleep(node Node, variables map[string]string) *harness.Step {

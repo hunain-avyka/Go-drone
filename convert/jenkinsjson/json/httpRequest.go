@@ -1,9 +1,10 @@
 package json
 
 import (
-	harness "github.com/drone/spec/dist/go"
 	"log"
 	"strings"
+
+	harness "github.com/hunain-avyka/go-spec/dist/go"
 )
 
 const (

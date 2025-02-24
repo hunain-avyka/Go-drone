@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	harness "github.com/drone/spec/dist/go"
+	harness "github.com/hunain-avyka/go-spec/dist/go"
 )
 
 type runner struct {

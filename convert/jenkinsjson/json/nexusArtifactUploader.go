@@ -3,8 +3,9 @@ package json
 import (
 	"encoding/json"
 	"fmt"
-	harness "github.com/drone/spec/dist/go"
 	"log"
+
+	harness "github.com/hunain-avyka/go-spec/dist/go"
 )
 
 const (

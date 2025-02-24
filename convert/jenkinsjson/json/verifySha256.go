@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	harness "github.com/drone/spec/dist/go"
+	harness "github.com/hunain-avyka/go-spec/dist/go"
 )
 
 func ConvertVerifySha256(node Node, variables map[string]string, dockerImage string) *harness.Step {
@@ -22,15 +22,15 @@ func ConvertVerifySha256(node Node, variables map[string]string, dockerImage str
 		}
 	}
 
-	var runCommand string = fmt.Sprintf("echo %v %v | sha256sum -c", hash,file)
+	var runCommand string = fmt.Sprintf("echo %v %v | sha256sum -c", hash, file)
 	verifySha256step := &harness.Step{
 		Name: node.SpanName,
 		Id:   SanitizeForId(node.SpanName, node.SpanId),
 		Type: "script",
 		Spec: &harness.StepExec{
-			Image:   dockerImage,
-			Shell:   "sh",
-			Run:     runCommand,
+			Image: dockerImage,
+			Shell: "sh",
+			Run:   runCommand,
 		},
 	}
 

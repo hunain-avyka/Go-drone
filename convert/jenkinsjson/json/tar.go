@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"log"
 
-	harness "github.com/drone/spec/dist/go"
+	harness "github.com/hunain-avyka/go-spec/dist/go"
 )
 
 func ConvertTar(node Node, variables map[string]string) *harness.Step {

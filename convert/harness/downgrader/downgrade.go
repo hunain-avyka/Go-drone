@@ -26,10 +26,10 @@ import (
 	"github.com/hunain-avyka/Go-drone/internal/slug"
 	"github.com/hunain-avyka/Go-drone/internal/store"
 
-	v1 "github.com/drone/spec/dist/go"
 	"github.com/ghodss/yaml"
 	downgraderYaml "github.com/hunain-avyka/Go-drone/convert/harness/downgrader/yaml"
 	v0 "github.com/hunain-avyka/Go-drone/convert/harness/yaml"
+	v1 "github.com/hunain-avyka/go-spec/dist/go"
 )
 
 // Downgrader downgrades pipelines from the v0 harness

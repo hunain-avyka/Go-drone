@@ -25,9 +25,9 @@ import (
 	"strconv"
 	"strings"
 
-	harness "github.com/drone/spec/dist/go"
 	jenkinsjson "github.com/hunain-avyka/Go-drone/convert/jenkinsjson/json"
 	"github.com/hunain-avyka/Go-drone/internal/store"
+	harness "github.com/hunain-avyka/go-spec/dist/go"
 	"gopkg.in/yaml.v2"
 )
 

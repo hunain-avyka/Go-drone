@@ -2,8 +2,9 @@ package json
 
 import (
 	"encoding/json"
-	harness "github.com/drone/spec/dist/go"
 	"strings"
+
+	harness "github.com/hunain-avyka/go-spec/dist/go"
 )
 
 func ConvertDockerPushStep(node Node, variables map[string]string, timeout string) *harness.Step {

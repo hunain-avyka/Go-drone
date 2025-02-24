@@ -1,6 +1,6 @@
 package json
 
-import harness "github.com/drone/spec/dist/go"
+import harness "github.com/hunain-avyka/go-spec/dist/go"
 
 var JenkinsToDroneSlackUserIdsFromCommittersParamMapperList = []JenkinsToDroneParamMapper{
 	{"email", "slack_user_email_id", StringType, nil},

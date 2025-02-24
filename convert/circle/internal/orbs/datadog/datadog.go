@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	harness "github.com/drone/spec/dist/go"
 	circle "github.com/hunain-avyka/Go-drone/convert/circle/yaml"
+	harness "github.com/hunain-avyka/go-spec/dist/go"
 )
 
 func Convert(command string, step *circle.Custom) *harness.Step {

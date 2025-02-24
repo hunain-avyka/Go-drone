@@ -3,10 +3,11 @@ package json
 import (
 	"encoding/json"
 	"errors"
-	harness "github.com/drone/spec/dist/go"
 	"log"
 	"strconv"
 	"strings"
+
+	harness "github.com/hunain-avyka/go-spec/dist/go"
 )
 
 type ParamTransform func(node *Node, attrMap map[string]interface{}, jenkinsKey string) (interface{}, error)

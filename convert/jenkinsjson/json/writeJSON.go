@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	harness "github.com/drone/spec/dist/go"
+	harness "github.com/hunain-avyka/go-spec/dist/go"
 )
 
 func ConvertWriteJSON(node Node, variables map[string]string) *harness.Step {

@@ -23,8 +23,8 @@ import (
 	"regexp"
 	"strings"
 
-	v2 "github.com/drone/spec/dist/go"
 	v1 "github.com/hunain-avyka/Go-drone/convert/drone/yaml"
+	v2 "github.com/hunain-avyka/go-spec/dist/go"
 
 	"github.com/ghodss/yaml"
 	"github.com/hunain-avyka/Go-drone/internal/store"

@@ -17,8 +17,8 @@ package travis
 import (
 	"strings"
 
-	harness "github.com/drone/spec/dist/go"
 	travis "github.com/hunain-avyka/Go-drone/convert/travis/yaml"
+	harness "github.com/hunain-avyka/go-spec/dist/go"
 )
 
 func (d *Converter) convertAddons(ctx *context) []*harness.Step {

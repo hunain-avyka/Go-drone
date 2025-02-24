@@ -2,11 +2,12 @@ package json
 
 import (
 	"encoding/json"
-	yaml "github.com/drone/spec/dist/go"
 	"io/ioutil"
 	"os"
 	"path/filepath"
 	"testing"
+
+	yaml "github.com/hunain-avyka/go-spec/dist/go"
 
 	"github.com/google/go-cmp/cmp"
 )

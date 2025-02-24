@@ -3,7 +3,7 @@ package json
 import (
 	"strings"
 
-	harness "github.com/drone/spec/dist/go"
+	harness "github.com/hunain-avyka/go-spec/dist/go"
 )
 
 // ConvertUnarchive creates a Harness step for plugin step to handle unarchiving.

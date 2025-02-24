@@ -3,8 +3,8 @@ package json
 import (
 	"testing"
 
-	harness "github.com/drone/spec/dist/go"
 	"github.com/google/go-cmp/cmp"
+	harness "github.com/hunain-avyka/go-spec/dist/go"
 )
 
 func TestConvertNotification(t *testing.T) { // Convert bytes to string

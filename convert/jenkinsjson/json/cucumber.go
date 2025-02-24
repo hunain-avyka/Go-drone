@@ -3,7 +3,7 @@ package json
 import (
 	"fmt"
 
-	harness "github.com/drone/spec/dist/go"
+	harness "github.com/hunain-avyka/go-spec/dist/go"
 )
 
 // ConvertCucumber creates a Harness step for the Cucumber plugin.

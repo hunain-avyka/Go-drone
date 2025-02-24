@@ -21,8 +21,8 @@ import (
 	"os"
 	"strings"
 
-	harness "github.com/drone/spec/dist/go"
 	bitbucket "github.com/hunain-avyka/Go-drone/convert/bitbucket/yaml"
+	harness "github.com/hunain-avyka/go-spec/dist/go"
 
 	"github.com/ghodss/yaml"
 	"github.com/hunain-avyka/Go-drone/internal/store"

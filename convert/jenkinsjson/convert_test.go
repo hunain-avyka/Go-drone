@@ -8,8 +8,8 @@ import (
 	"strings"
 	"testing"
 
-	harness "github.com/drone/spec/dist/go"
 	jenkinsjson "github.com/hunain-avyka/Go-drone/convert/jenkinsjson/json"
+	harness "github.com/hunain-avyka/go-spec/dist/go"
 
 	"github.com/google/go-cmp/cmp"
 )
